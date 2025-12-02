@@ -48,9 +48,9 @@ The entire development process will be guided by the following principles, deriv
     -   **Enhance Visual Hierarchy:** Use animations, highlights, and clear iconography to make the game state (current player, active suit, penalties) instantly understandable.
 
 -   **Task 1.2: Real-Time Multiplayer Architecture**
-    -   **Backend Implementation:** Integrate a real-time backend service (e.g., Firebase - Firestore/Realtime Database) to manage game state, user data, and communication.
-    -   **User Authentication:** Implement social logins (Google, Apple, etc.) for frictionless onboarding.
-    -   **Matchmaking System:** Create a simple, one-button matchmaking service to quickly connect 2-4 players into a game.
+    -   **Backend Implementation:** Integrate Supabase (PostgreSQL + Real-time subscriptions) for game state management, user data, and real-time communication.
+    -   **User Authentication:** Implement social logins (Google, Apple, etc.) using Supabase Auth for frictionless onboarding.
+    -   **Matchmaking System:** Create a simple, one-button matchmaking service using Vercel Edge Functions to quickly connect 2-4 players into a game.
     -   **Friends & Private Lobbies:** Build functionality for users to add friends and invite them to private games.
 
 -   **Task 1.3: Real-Time Voice & Video Chat (NEW)**
@@ -112,7 +112,16 @@ The entire development process will be guided by the following principles, deriv
 ## 5. Proposed Technology Stack
 
 -   **Frontend:** React, TypeScript, Tailwind CSS (Refactored for mobile-first and component reusability).
--   **State Management:** Evolve from `useState` to a more robust client-side solution like Zustand or Redux Toolkit to manage complex UI and game state.
--   **Backend:** Firebase (Authentication, Firestore for real-time data, Cloud Functions for server-side logic).
--   **Real-Time Communication:** A managed WebRTC service (e.g., Agora, Twilio) for voice and video chat.
+-   **State Management:** Evolve from `useReducer` to a more robust client-side solution like Zustand or Redux Toolkit to manage complex UI and game state.
+-   **Frontend Hosting:** Vercel (Global CDN, automatic GitHub deployments, 100% free for personal projects).
+-   **Backend Database:** Supabase (PostgreSQL with real-time subscriptions, no daily operation limits).
+-   **Authentication:** Supabase Auth (Google OAuth, email/password, anonymous auth).
+-   **Serverless Functions:** Vercel Edge Functions (for matchmaking logic and server-side validation).
+-   **Real-Time Communication (Voice/Video):** A managed WebRTC service (e.g., Agora, Twilio) for voice and video chat.
 -   **Animation:** A dedicated animation library (e.g., Framer Motion) to achieve the required level of "juice".
+
+### Why Vercel + Supabase?
+-   **100% Free Tier**: Both platforms offer generous free tiers perfect for MVP and initial growth.
+-   **No Daily Limits**: Unlike Firebase, Supabase has no daily read/write caps.
+-   **Professional Performance**: Enterprise-grade infrastructure without the cost.
+-   **Developer Experience**: Best-in-class DX with excellent documentation and tooling.
