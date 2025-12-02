@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Kadi",
+  "description": "Kadi is a browser-based card game built with React and Tailwind CSS. This version introduces multiplayer functionality for 2-4 players, a game setup screen, and basic turn-based card drawing.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
